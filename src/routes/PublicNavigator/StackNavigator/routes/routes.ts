@@ -1,6 +1,6 @@
 import { StackPublicDefinitions } from "./types";
 
-import {GalleryStack} from "@features/Gallery";
+import {GalleryStack} from "../../../../features/Gallery";
 
 export const routes = {
   [StackPublicDefinitions.GALLERY]: {
