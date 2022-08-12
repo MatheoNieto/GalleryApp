@@ -6,7 +6,7 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@theme/*": ["src/theme/*"],
-      "@screens/*": ["src/screens/*"],
+      "@features/*": ["src/features/*"],
       "@models/*": ["src/models/*"]
     }
   }
