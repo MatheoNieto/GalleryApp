@@ -6,6 +6,6 @@ export const makeStyles = ({color, spacing}: ThemeKeys) =>
     container: {
       flex:1,
       backgroundColor: color.white,
-      padding: spacing[5]
+      padding: spacing[4]
     },
   });
