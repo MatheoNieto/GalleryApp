@@ -1,8 +1,7 @@
 import React, {FC} from 'react';
 import {View, Text, ImageBackground, ImageSourcePropType} from 'react-native';
 import {useTheme} from '@contexts/Theme';
-import {makeStyles, gradient} from './ImageWidget.styles';
-import { LinearGradient } from 'expo-linear-gradient';
+import {makeStyles} from './ImageWidget.styles';
 
 type Props = {
   image: ImageSourcePropType;
@@ -13,20 +12,17 @@ type Props = {
 const ImageWidget: FC<Props> = ({image, title, votes}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
-  const {start, end, colors} = gradient(theme);
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={image}
-        style={styles.imgBackground}
-        imageStyle={styles.imageStyle}
-      />
-      <LinearGradient start={start} end={end} colors={colors}>
-        <Text>{title}</Text>
-        <Text>{votes}</Text>
-      </LinearGradient>
-    </View>
+    <ImageBackground
+      source={image}
+      style={styles.imgBackground}
+      imageStyle={styles.imageStyle}>
+      <View style={styles.contentInfo}>
+        <Text style={[styles.label]}>{title}</Text>
+        <Text style={[styles.label, styles.labelVotes]}>{votes}</Text>
+      </View>
+    </ImageBackground>
   );
 };
 

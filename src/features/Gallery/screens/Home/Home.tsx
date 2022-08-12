@@ -19,6 +19,7 @@ const Home = () => {
         data={data}
         renderItem={renderWidgets}
         keyExtractor={(item, index) => `${item.title}-${index}`}
+        numColumns={2}
       />
     </View>
   );

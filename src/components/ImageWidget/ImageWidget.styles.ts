@@ -1,29 +1,31 @@
 import {StyleSheet} from 'react-native';
 import {ThemeKeys} from '@contexts/Theme';
 
-export const makeStyles = ({}: ThemeKeys) =>
+export const makeStyles = ({typography, color, sizes, spacing}: ThemeKeys) =>
   StyleSheet.create({
-    container: {
+    imgBackground: {
       with: 151,
       height: 218,
-      borderBottomLeftRadius: 10,
-      borderBottomRightRadius: 10,
-    },
-    imgBackground: {
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
+      margin: spacing[2]
     },
     imageStyle: {
-      borderTopLeftRadius: 10,
-      borderTopRightRadius: 10,
+      borderRadius: 10,
     },
     contentInfo: {
-      backgroundColor: 'red',
+      backgroundColor: color.black,
+      borderBottomRightRadius: 10,
+      borderBottomLeftRadius: 10,
+      padding: spacing[3]
+
+    },
+    label: {
+      fontFamily: typography.primary,
+      color: color.white,
+      fontSize: sizes.small,
+    },
+    labelVotes: {
+      fontSize: sizes.xSmall,
     },
   });
-
-export const gradient = ({color}: ThemeKeys) => ({
-  start: {x: 0, y: 0},
-  end: {x: 1, y: 0},
-  colors: ['transparent', color.black],
-});
