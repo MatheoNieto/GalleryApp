@@ -8,4 +8,5 @@ export const color = {
   },
   white: palette.White,
   shadowGrey: palette.ShadowGrey,
+  black: palette.Black,
 };

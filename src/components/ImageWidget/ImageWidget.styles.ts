@@ -6,14 +6,24 @@ export const makeStyles = ({}: ThemeKeys) =>
     container: {
       with: 151,
       height: 218,
-      justifyContent: 'center'
+      borderBottomLeftRadius: 10,
+      borderBottomRightRadius: 10,
     },
     imgBackground: {
       flex: 1,
-      justifyContent: "center"
+      justifyContent: 'center',
+    },
+    imageStyle: {
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
     },
     contentInfo: {
       backgroundColor: 'red',
-      bottom: 0
-    }
+    },
   });
+
+export const gradient = ({color}: ThemeKeys) => ({
+  start: {x: 0, y: 0},
+  end: {x: 1, y: 0},
+  colors: ['transparent', color.black],
+});
