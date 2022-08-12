@@ -9,7 +9,8 @@
       "@features/*": ["src/features/*"],
       "@navigators/*": ["src/navigators/*"],
       "@routes/*": ["src/routes/*"],
-      "@contexts/*": ["src/contexts/*"]
+      "@contexts/*": ["src/contexts/*"],
+      "@components/*": ["src/components/*"]
     }
   }
 }

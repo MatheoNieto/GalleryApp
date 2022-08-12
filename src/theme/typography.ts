@@ -6,17 +6,17 @@ export const typography = {
   /**
    * The primary font.  Used in most places.
    */
-  primary: Platform.select({ios: 'Lato-Regular', android: 'Lato-Regular'}),
+  primary: Platform.select({ios: 'Museo-Regular', android: 'Museo-Regular'}),
 
   /**
    * The primary font.  Used in most places.
    */
-  primaryBold: Platform.select({ios: 'Lato-Bold', android: 'Lato-Bold'}),
+  primaryBold: Platform.select({ios: 'Museo-Bold', android: 'Museo-Bold'}),
 
   /**
    * The primary font.  Used in most places.
    */
-  primaryThin: Platform.select({ios: 'Lato-Thin', android: 'Lato-Thin'}),
+  primaryThin: Platform.select({ios: 'Museo-Thin', android: 'Museo-Thin'}),
 
   /**
    * An alternate font used for perhaps titles and stuff.

@@ -12,7 +12,8 @@ module.exports = function(api) {
               "@environment": "./src/environment/environment",
               "@navigators": "./src/navigators",
               "@routes": "./src/routes",
-              "@contexts": "./src/contexts"
+              "@contexts": "./src/contexts",
+              "@components": "./src/components"
             }
         }]
       ],
