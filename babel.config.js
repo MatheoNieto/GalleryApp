@@ -9,7 +9,10 @@ module.exports = function(api) {
               "@screens": "./src/screens",
               "@assets": "./src/assets",
               "@navigation": "./src/navigation",
-              "@environment": "./src/environment/environment"
+              "@environment": "./src/environment/environment",
+              "@navigators": "./src/navigators",
+              "@routes": "./src/routes",
+              "@contexts": "./src/contexts"
             }
         }]
       ],

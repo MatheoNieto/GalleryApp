@@ -1,4 +1,6 @@
-import React from 'react'
-import {Text} from 'react-native'
+import React from 'react';
+import {Text} from 'react-native';
 
-export const HomeScreen = ()=> <Text> Im Home </Text>
+const Home = () => <Text> Im Home </Text>;
+
+export default Home;

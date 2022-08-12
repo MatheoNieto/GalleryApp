@@ -1,4 +1,6 @@
-import React from 'react'
-import {Text} from 'react-native'
+import React from 'react';
+import {Text} from 'react-native';
 
-export const ProfileScreen = ()=> <Text> Im Profile </Text>
+const Profile = () => <Text> Im Profile </Text>;
+
+export default Profile;

@@ -1,4 +1,6 @@
-import React from 'react'
-import {Text} from 'react-native'
+import React from 'react';
+import {Text} from 'react-native';
 
-export const DetailScreen = ()=> <Text> Im detail </Text>
+const Detail = () => <Text> Im detail </Text>;
+
+export default Detail;
