@@ -1,10 +1,12 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {
   Text,
   ImageBackground,
   View,
   Image,
   ActivityIndicator,
+  Pressable,
+  Animated,
 } from 'react-native';
 import {DetailProps} from './Detail.types';
 import {useTheme} from '@contexts/Theme';
@@ -17,7 +19,17 @@ const Detail: FC<DetailProps> = ({route, navigation}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
+  const [showInfoPhoto, setShowInfoPhoto] = useState(true);
+  const visibility = new Animated.Value(showInfoPhoto ? 1 : 0);
   const {isLoading, data: imageWidget, refetch} = useGetPhoto(photoId);
+
+  Animated.timing(visibility, {
+    useNativeDriver:true,
+    toValue: !showInfoPhoto ? 1 : 0,
+    duration: 300,
+  }).start()
+
+  const handleShowInfo = () => setShowInfoPhoto(!showInfoPhoto);
 
   useEffect(() => {
     const handler = setTimeout(() => refetch(), 300);
@@ -33,33 +45,51 @@ const Detail: FC<DetailProps> = ({route, navigation}) => {
     return <ActivityIndicator />;
   }
 
-  return (
-    <ImageBackground
-      source={{uri: imageWidget.urls.full}}
-      style={styles.imgBackground}>
-      <View style={styles.contentInfo}>
-        <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
-          {imageWidget.description}
-        </Text>
-        <Text style={styles.votes}>{`${imageWidget.views} views`}</Text>
+  const containerStyle = {
+    opacity: visibility.interpolate({
+      inputRange: [0, 1],
+      outputRange: [0, 1],
+      extrapolate: 'clamp',
+    }),
+    transform: [
+      {
+        scale: visibility.interpolate({
+          inputRange: [0, 1],
+          outputRange: [1.2, 1],
+        }),
+      },
+    ],
+  };
 
-        <View style={styles.author}>
-          <Image
-            source={{uri: imageWidget.user.profile_image.medium}}
-            style={styles.authorImage}
-          />
-          <View>
-            <Text
-              style={
-                styles.nameAuthor
-              }>{`${imageWidget.user.name} ${imageWidget.user.last_name}`}</Text>
-            <Text style={styles.viewProfile} onPress={handleShowProfile}>
-              View profile
-            </Text>
+  return (
+    <Pressable onPress={handleShowInfo} style={styles.pressable}>
+      <ImageBackground
+        source={{uri: imageWidget.urls.full}}
+        style={styles.imgBackground}>
+        <Animated.View style={[styles.contentInfo, containerStyle]}>
+          <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
+            {imageWidget.description}
+          </Text>
+          <Text style={styles.votes}>{`${imageWidget.views} views`}</Text>
+
+          <View style={styles.author}>
+            <Image
+              source={{uri: imageWidget.user.profile_image.medium}}
+              style={styles.authorImage}
+            />
+            <View>
+              <Text
+                style={
+                  styles.nameAuthor
+                }>{`${imageWidget.user.name} ${imageWidget.user.last_name}`}</Text>
+              <Text style={styles.viewProfile} onPress={handleShowProfile}>
+                View profile
+              </Text>
+            </View>
           </View>
-        </View>
-      </View>
-    </ImageBackground>
+        </Animated.View>
+      </ImageBackground>
+    </Pressable>
   );
 };
 
