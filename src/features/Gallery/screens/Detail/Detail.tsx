@@ -16,7 +16,7 @@ import {useGetPhoto} from '@hooks/getPhoto';
 import {AntDesign} from '@expo/vector-icons';
 
 const Detail: FC<DetailProps> = ({route, navigation}) => {
-  const {photoId} = route.params;
+  const {photoId, allPhotos} = route.params;
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
