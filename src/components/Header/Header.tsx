@@ -29,7 +29,7 @@ const Header: FC<Props> = ({typeHeader, onClose}) => {
     ),
     Profile: (
       <Pressable onPress={onClose}>
-        <AntDesign name="closecircleo" size={30} color="white" />
+        <AntDesign name="closecircleo" size={30} color="black" />
       </Pressable>
     ),
   };

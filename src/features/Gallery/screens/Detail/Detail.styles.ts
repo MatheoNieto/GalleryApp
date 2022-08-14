@@ -20,6 +20,7 @@ export const makeStyles = ({color, spacing, typography, sizes}: ThemeKeys) =>
       fontSize: sizes.xLarge,
       lineHeight: spacing[7],
       textTransform: 'capitalize',
+      width: 253
     },
     votes: {
       fontFamily: typography.primaryThin,

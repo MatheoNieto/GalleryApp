@@ -17,9 +17,21 @@ const Stack = () => {
       <Screen
         name={Routes.DETAIL_IMAGE}
         component={DetailScreen}
-        options={{header: ({navigation}) => <Header typeHeader="Detail" onClose={()=> navigation.goBack()} />}}
+        options={{
+          header: ({navigation}) => (
+            <Header typeHeader="Detail" onClose={() => navigation.goBack()} />
+          ),
+        }}
       />
-      <Screen name={Routes.PROFILE_GALLERY} component={ProfileScreen} />
+      <Screen
+        name={Routes.PROFILE_GALLERY}
+        component={ProfileScreen}
+        options={{
+          header: ({navigation}) => (
+            <Header typeHeader="Profile" onClose={() => navigation.goBack()} />
+          ),
+        }}
+      />
     </Navigator>
   );
 };
