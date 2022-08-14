@@ -1,21 +1,40 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {FC} from 'react';
+import {View, Text, Pressable} from 'react-native';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Header.styles';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import {Ionicons, AntDesign} from '@expo/vector-icons';
 
-const Header = () => {
+type Props = {
+  typeHeader: 'Home' | 'Detail' | 'Profile';
+  onClose?: () => void;
+};
+
+const Header: FC<Props> = ({typeHeader, onClose}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
-  return (
-    <View style={styles.container}>
-      <Ionicons name="menu-sharp" size={30} color="black" />
-      <View style={styles.contentTitle}>
-        <Text style={styles.title}>Discover</Text>
-      </View>
-    </View>
-  );
+  const opcionHeader = {
+    Home: (
+      <>
+        <Ionicons name="menu-sharp" size={30} color="black" />
+        <View style={styles.contentTitle}>
+          <Text style={styles.title}>Discover</Text>
+        </View>
+      </>
+    ),
+    Detail: (
+      <Pressable onPress={onClose}>
+        <AntDesign name="closecircleo" size={30} color="black" />
+      </Pressable>
+    ),
+    Profile: (
+      <Pressable onPress={onClose}>
+        <AntDesign name="closecircleo" size={30} color="white" />
+      </Pressable>
+    ),
+  };
+
+  return <View style={styles.container}>{opcionHeader[typeHeader]}</View>;
 };
 
 export default Header;

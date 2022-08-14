@@ -12,12 +12,15 @@ const Stack = () => {
       <Screen
         name={Routes.HOME_GALLERY}
         component={HomeScreen}
-        options={{header: () => <Header />}}
+        options={{header: () => <Header typeHeader="Home" />}}
       />
-      <Screen name={Routes.DETAIL_IMAGE} component={DetailScreen} />
+      <Screen
+        name={Routes.DETAIL_IMAGE}
+        component={DetailScreen}
+        options={{header: ({navigation}) => <Header typeHeader="Detail" onClose={()=> navigation.goBack()} />}}
+      />
       <Screen name={Routes.PROFILE_GALLERY} component={ProfileScreen} />
     </Navigator>
   );
 };
-
 export default Stack;
