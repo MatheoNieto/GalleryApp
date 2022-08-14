@@ -32,11 +32,12 @@ export const makeStyles = ({color, spacing, typography, sizes}: ThemeKeys) =>
       lineHeight: spacing[4]
     },
     myPhotos: {
-      marginVertical: spacing[5]
+      marginVertical: spacing[6],
+      flex: 1,
     },
     title: {
       fontFamily: typography.primaryBold,
       fontSize: sizes.xLarge,
-      lineHeight: spacing[7]
+      lineHeight: spacing[7],
     }
   });
