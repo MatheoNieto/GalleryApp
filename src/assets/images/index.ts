@@ -5,4 +5,5 @@ export const images = {
   plants: require('./plants.png'),
   wheel: require('./wheel.png'),
   skyLine: require('./skyLine.png'),
+  author: require('./author.png'),
 };

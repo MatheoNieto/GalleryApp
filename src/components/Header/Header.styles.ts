@@ -7,7 +7,7 @@ export const makeStyles = ({typography, sizes, color, spacing, fontWeight }: The
     padding:spacing[5],
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   contentTitle: {
     flex: 1

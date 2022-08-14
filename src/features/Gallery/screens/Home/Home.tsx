@@ -3,7 +3,7 @@ import {View, FlatList} from 'react-native';
 import {ImageWidget} from '../../../../components/ImageWidget';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Home.styles';
-import {HomeProps} from './HomeProps';
+import {HomeProps} from './Home.types';
 import {Routes} from '../../navigation/routes';
 import {dataMockType, data} from '../../mock/dataImages';
 
