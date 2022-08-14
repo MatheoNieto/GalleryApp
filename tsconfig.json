@@ -10,7 +10,10 @@
       "@navigators/*": ["src/navigators/*"],
       "@routes/*": ["src/routes/*"],
       "@contexts/*": ["src/contexts/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@environment/*": ["src/environment/*"],
+      "@core/*": ["src/core/*"],
+      "@hooks/*": ["src/hooks"]
     }
   }
 }

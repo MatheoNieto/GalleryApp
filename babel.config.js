@@ -9,11 +9,14 @@ module.exports = function (api) {
           "@features": "./src/features",
           "@assets": "./src/assets",
           "@navigation": "./src/navigation",
-          "@environment": "./src/environment/environment",
+          "@environment": "./src/environment",
           "@navigators": "./src/navigators",
           "@routes": "./src/routes",
           "@contexts": "./src/contexts",
-          "@components": "./src/components"
+          "@components": "./src/components",
+          "@core": "./src/core",
+          "@hooks": "./src/hooks",
+
         }
       }],
     ],
