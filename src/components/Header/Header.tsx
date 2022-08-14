@@ -3,15 +3,19 @@ import {View, Text, Pressable} from 'react-native';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Header.styles';
 import {Ionicons, AntDesign} from '@expo/vector-icons';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {Routes} from '@features/Gallery/navigation/routes';
 
 type Props = {
   typeHeader: 'Home' | 'Detail' | 'Profile';
-  onClose?: () => void;
+  navigation?: StackNavigationProp<any>;
 };
 
-const Header: FC<Props> = ({typeHeader, onClose}) => {
+const Header: FC<Props> = ({typeHeader, navigation}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
+
+  const onClose = () => navigation && navigation.navigate(Routes.HOME_GALLERY);
 
   const opcionHeader = {
     Home: (

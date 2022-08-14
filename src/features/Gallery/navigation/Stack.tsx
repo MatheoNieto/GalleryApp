@@ -19,7 +19,7 @@ const Stack = () => {
         component={DetailScreen}
         options={{
           header: ({navigation}) => (
-            <Header typeHeader="Detail" onClose={() => navigation.goBack()} />
+            <Header typeHeader="Detail" navigation={navigation} />
           ),
         }}
       />
@@ -28,7 +28,7 @@ const Stack = () => {
         component={ProfileScreen}
         options={{
           header: ({navigation}) => (
-            <Header typeHeader="Profile" onClose={() => navigation.goBack()} />
+            <Header typeHeader="Profile" navigation={navigation} />
           ),
         }}
       />
