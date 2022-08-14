@@ -1,16 +1,22 @@
 import React, {FC} from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, ActivityIndicator} from 'react-native';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Profile.styles';
 import {ProfileProps} from './Profile.types';
 import {ListImage} from '@components/ListImage';
-import {data} from '../../mock/dataImages';
+import {useGetAuthor} from '@hooks/getAuthor';
 
 const Profile: FC<ProfileProps> = ({route, navigation}) => {
-  const {dataAuthor} = route.params;
+  const {username} = route.params;
 
   const {theme} = useTheme();
   const styles = makeStyles(theme);
+
+  const {isLoading, data: dataAuthor} = useGetAuthor(username);
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <View style={styles.container}>
@@ -24,7 +30,7 @@ const Profile: FC<ProfileProps> = ({route, navigation}) => {
 
       <View style={styles.myPhotos}>
         <Text style={styles.title}>My Photos</Text>
-        <ListImage navigation={navigation} data={data} />
+        {/* <ListImage navigation={navigation} data={data} /> */}
       </View>
     </View>
   );

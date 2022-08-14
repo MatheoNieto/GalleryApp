@@ -6,7 +6,7 @@ import {dataImage} from '@components/ListImage/ListImage.types'
 export type GalleryStackParamList = {
   [Routes.DETAIL_IMAGE]: {imageWidget: dataImage};
   [Routes.HOME_GALLERY]: undefined;
-  [Routes.PROFILE_GALLERY]: {dataAuthor: dataImage};
+  [Routes.PROFILE_GALLERY]: {username: string};
 };
 
 export type GalleryStackProps = StackNavigationProp<GalleryStackParamList>;
