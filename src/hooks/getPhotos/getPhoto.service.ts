@@ -2,7 +2,7 @@ import {Http} from '@core/services';
 import {endPoints} from '@shared/endPoints';
 
 export const getPhotos = async () => {
-  const response = await Http.get(endPoints.getPhotosRandom, {count: 1});
+  const response = await Http.get(endPoints.getPhotosRandom, {count: 10});
   return Promise.resolve(response);
 };
 

@@ -16,17 +16,25 @@ const Detail: FC<DetailProps> = ({route, navigation}) => {
     });
 
   return (
-    <ImageBackground source={imageWidget.image} style={styles.imgBackground}>
+    <ImageBackground
+      source={{uri: imageWidget.urls.full}}
+      style={styles.imgBackground}>
       <View style={styles.contentInfo}>
         <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
-          {imageWidget.title}
+          {imageWidget.description}
         </Text>
-        <Text style={styles.votes}>{imageWidget.votes}</Text>
+        <Text style={styles.votes}>{`${imageWidget.views} views`}</Text>
 
         <View style={styles.author}>
-          <Image source={imageWidget.author.image} style={styles.authorImage} />
+          <Image
+            source={{uri: imageWidget.user.profile_image.medium}}
+            style={styles.authorImage}
+          />
           <View>
-            <Text style={styles.nameAuthor}>{imageWidget.author.fullName}</Text>
+            <Text
+              style={
+                styles.nameAuthor
+              }>{`${imageWidget.user.name} ${imageWidget.user.last_name}`}</Text>
             <Text style={styles.viewProfile} onPress={handleShowProfile}>
               View profile
             </Text>

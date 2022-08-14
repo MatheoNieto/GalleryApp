@@ -22,7 +22,7 @@ class GeneralRequestService {
         ...params,
       },
     });
-    return [response.data];
+    return response.data;
   }
 }
 

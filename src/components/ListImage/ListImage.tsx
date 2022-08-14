@@ -10,23 +10,17 @@ const ListImage: FC<ListImageProps> = ({data, navigation}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
-  console.log('=>data', data[0]);
-
   const handlePressWidget = (dataWidget: dataImage) =>
     navigation.navigate(Routes.DETAIL_IMAGE, {imageWidget: dataWidget});
 
   const renderWidgets = ({item}: {item: dataImage}) => (
     <ImageWidget
       image={item.urls.regular}
-      title={item?.description}
-      votes={item?.views}
+      title={item.description}
+      views={item.views}
       onPress={() => handlePressWidget(item)}
     />
   );
-
-  if (data.length === 0) {
-    return null;
-  }
 
   return (
     <FlatList
