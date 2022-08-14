@@ -6,6 +6,7 @@ export const makeStyles = ({color, spacing, typography, sizes}: ThemeKeys) =>
     imgBackground: {
       flex: 1,
       justifyContent: 'flex-end',
+      resizeMode: 'cover'
     },
     contentInfo: {
       backgroundColor: color.black,

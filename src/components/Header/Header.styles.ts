@@ -17,5 +17,9 @@ export const makeStyles = ({typography, sizes, color, spacing, fontWeight }: The
     fontSize: sizes.large,
     fontWeight: fontWeight.bold,
     textAlign: 'center',
+  },
+  closeDetail: {
+    position: 'absolute',
+    backgroundColor:'transparent'
   }
 })

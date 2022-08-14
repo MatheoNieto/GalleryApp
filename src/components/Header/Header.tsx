@@ -28,7 +28,7 @@ const Header: FC<Props> = ({typeHeader, navigation}) => {
     ),
     Detail: (
       <Pressable onPress={onClose}>
-        <AntDesign name="closecircleo" size={30} color="black" />
+        <AntDesign name="closecircleo" size={30} color="white" />
       </Pressable>
     ),
     Profile: (
@@ -38,7 +38,7 @@ const Header: FC<Props> = ({typeHeader, navigation}) => {
     ),
   };
 
-  return <View style={styles.container}>{opcionHeader[typeHeader]}</View>;
+  return <View style={[styles.container, typeHeader === 'Detail' && styles.closeDetail]}>{opcionHeader[typeHeader]}</View>;
 };
 
 export default Header;
