@@ -14,15 +14,15 @@ const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
 
   const y = new Animated.Value(0);
 
-  const handlePressWidget = (dataWidget: dataImage) =>
-    navigation.navigate(Routes.DETAIL_IMAGE, {imageWidget: dataWidget});
+  const handlePressWidget = (photoId: string) =>
+    navigation.navigate(Routes.DETAIL_IMAGE, {photoId});
 
   const renderWidgets = ({item, index}: {item: dataImage, index: number}) => (
     <ImageWidget
       image={item.urls.regular}
       title={item.description}
       views={item.views}
-      onPress={() => handlePressWidget(item)}
+      onPress={() => handlePressWidget(item.id)}
       noShowInfo={noShowInfo}
       y={y}
       index={index}

@@ -1,19 +1,37 @@
-import React, {FC} from 'react';
-import {Text, ImageBackground, View, Image} from 'react-native';
+import React, {FC, useEffect} from 'react';
+import {
+  Text,
+  ImageBackground,
+  View,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
 import {DetailProps} from './Detail.types';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Detail.styles';
 import {Routes} from '../../navigation/routes';
+import {useGetPhoto} from '@hooks/getPhoto';
 
 const Detail: FC<DetailProps> = ({route, navigation}) => {
-  const {imageWidget} = route.params;
+  const {photoId} = route.params;
   const {theme} = useTheme();
   const styles = makeStyles(theme);
+
+  const {isLoading, data: imageWidget, refetch} = useGetPhoto(photoId);
+
+  useEffect(() => {
+    const handler = setTimeout(() => refetch(), 300);
+    return () => clearTimeout(handler);
+  }, [photoId]);
 
   const handleShowProfile = () =>
     navigation.navigate(Routes.PROFILE_GALLERY, {
       username: imageWidget.user.username,
     });
+
+  if (isLoading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <ImageBackground
