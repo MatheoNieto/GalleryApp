@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Text, ImageBackground, View, Image} from 'react-native';
+import {Text, ImageBackground, View, Image, StatusBar} from 'react-native';
 import {DetailProps} from './Detail.types';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Detail.styles';
@@ -19,6 +19,7 @@ const Detail: FC<DetailProps> = ({route, navigation}) => {
     <ImageBackground
       source={{uri: imageWidget.urls.full}}
       style={styles.imgBackground}>
+      <StatusBar hidden />
       <View style={styles.contentInfo}>
         <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
           {imageWidget.description}

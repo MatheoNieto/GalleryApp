@@ -1,35 +1,45 @@
 import React, {FC} from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, Animated} from 'react-native';
 import {ImageWidget} from '../ImageWidget';
 import {Routes} from '@features/Gallery/navigation/routes';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './ListImage.styles';
 import {ListImageProps, dataImage} from './ListImage.types';
 
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
 const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
+  const y = new Animated.Value(0);
+
   const handlePressWidget = (dataWidget: dataImage) =>
     navigation.navigate(Routes.DETAIL_IMAGE, {imageWidget: dataWidget});
 
-  const renderWidgets = ({item}: {item: dataImage}) => (
+  const renderWidgets = ({item, index}: {item: dataImage, index: number}) => (
     <ImageWidget
       image={item.urls.regular}
       title={item.description}
       views={item.views}
       onPress={() => handlePressWidget(item)}
       noShowInfo={noShowInfo}
+      y={y}
+      index={index}
     />
   );
 
   return (
-    <FlatList
+    <AnimatedFlatList
+      bounces={false}
+      scrollEventThrottle={10}
+      onScroll={Animated.event([{nativeEvent: {contentOffset: {y}}}], {
+        useNativeDriver: true,
+      })}
       contentContainerStyle={styles.container}
       data={data}
       renderItem={renderWidgets}
       keyExtractor={(item, index) => `${item.id}-${index}`}
-      numColumns={2}
     />
   );
 };
