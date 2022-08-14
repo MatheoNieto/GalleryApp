@@ -1,34 +1,41 @@
-import {images} from '@assets/images'
+import {images} from '@assets/images';
+import {ImageSourcePropType} from 'react-native';
 
-export const data = [
+export type dataMockType = {
+  image: ImageSourcePropType;
+  title: string;
+  votes: string;
+};
+
+export const data: dataMockType[] = [
   {
     image: images.relaxOcean,
     title: 'Tranquilidad marina',
-    voting: '200 votos'
+    votes: '200 votos'
   },
   {
     image: images.plants,
     title: 'Tropical paradice',
-    voting: '100 votos'
+    votes: '100 votos'
   },
   {
     image: images.skyLine,
     title: 'Sky line',
-    voting: '50 votos'
+    votes: '50 votos'
   },
   {
     image: images.architecture,
     title: 'Architecture',
-    voting: '100 votos'
+    votes: '100 votos'
   },
   {
     image: images.flower,
     title: 'Tranquilidad marina',
-    voting: '200 votos'
+    votes: '200 votos'
   },
   {
     image: images.wheel,
     title: 'Tranquilidad marina',
-    voting: '200 votos'
-  }
-]
+    votes: '200 votos'
+  },
+];

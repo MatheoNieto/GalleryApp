@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {View, FlatList} from 'react-native';
 import {ImageWidget} from '../../../../components/ImageWidget';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Home.styles';
-import {data} from './mock/dataImages';
+import {HomeProps} from './HomeProps';
+import {Routes} from '../../navigation/routes';
+import {dataMockType, data} from '../../mock/dataImages';
 
-const Home = () => {
+const Home: FC<HomeProps> = ({navigation}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
-  const renderWidgets = ({item}) => (
-    <ImageWidget image={item.image} title={item.title} votes={item.voting} />
+  const handlePressWidget = (dataWidget: dataMockType) =>
+    navigation.navigate(Routes.DETAIL_IMAGE, {imageWidget: dataWidget});
+
+  const renderWidgets = ({item}: {item: dataMockType}) => (
+    <ImageWidget
+      image={item.image}
+      title={item.title}
+      votes={item.votes}
+      onPress={() => handlePressWidget(item)}
+    />
   );
 
   return (

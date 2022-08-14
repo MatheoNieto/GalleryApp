@@ -3,12 +3,15 @@ import {ThemeKeys} from '@contexts/Theme';
 
 export const makeStyles = ({typography, color, sizes, spacing}: ThemeKeys) =>
   StyleSheet.create({
-    imgBackground: {
+    container:{
+      flex: 1,
       with: 151,
       height: 218,
+      margin: spacing[2]
+    },
+    imgBackground: {
       flex: 1,
       justifyContent: 'flex-end',
-      margin: spacing[2]
     },
     imageStyle: {
       borderRadius: 10,
