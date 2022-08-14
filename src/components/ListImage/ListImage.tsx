@@ -6,7 +6,7 @@ import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './ListImage.styles';
 import {ListImageProps, dataImage} from './ListImage.types';
 
-const ListImage: FC<ListImageProps> = ({data, navigation}) => {
+const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
@@ -19,6 +19,7 @@ const ListImage: FC<ListImageProps> = ({data, navigation}) => {
       title={item.description}
       views={item.views}
       onPress={() => handlePressWidget(item)}
+      noShowInfo={noShowInfo}
     />
   );
 

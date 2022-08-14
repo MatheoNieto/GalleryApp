@@ -5,7 +5,7 @@ export type dataImage = {
   id: string;
   created_at: string;
   updated_at: string;
-  promoted_at: string
+  promoted_at: string;
   width: number;
   height: number;
   color: string;
@@ -64,4 +64,5 @@ export type dataImage = {
 export type ListImageProps = {
   data: dataImage[];
   navigation: StackNavigationProp<GalleryStackParamList>;
-}
+  noShowInfo: boolean | false;
+};

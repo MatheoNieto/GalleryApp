@@ -12,7 +12,7 @@ const Detail: FC<DetailProps> = ({route, navigation}) => {
 
   const handleShowProfile = () =>
     navigation.navigate(Routes.PROFILE_GALLERY, {
-      dataAuthor: imageWidget,
+      username: imageWidget.user.username,
     });
 
   return (

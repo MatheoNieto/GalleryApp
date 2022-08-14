@@ -21,16 +21,16 @@ const Profile: FC<ProfileProps> = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.author}>
-        <Image source={dataAuthor.author.image} style={styles.authorImage} />
+        <Image source={{uri: dataAuthor.profile_image.medium}} style={styles.authorImage} />
         <View style={styles.infoAuthor}>
-          <Text style={styles.nameAuthor}>{dataAuthor.author.fullName}</Text>
-          <Text style={styles.bioAuthor}>{dataAuthor.author.bio}</Text>
+          <Text style={styles.nameAuthor}>{dataAuthor.name}</Text>
+          <Text style={styles.bioAuthor}>{dataAuthor.bio}</Text>
         </View>
       </View>
 
       <View style={styles.myPhotos}>
         <Text style={styles.title}>My Photos</Text>
-        {/* <ListImage navigation={navigation} data={data} /> */}
+        <ListImage navigation={navigation} data={dataAuthor.photos} noShowInfo={true} />
       </View>
     </View>
   );

@@ -3,4 +3,5 @@ export type ImageWidgetProps = {
   title: string | null;
   views: number | 0;
   onPress: () => void;
+  noShowInfo: boolean | false;
 };
