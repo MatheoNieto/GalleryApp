@@ -1,13 +1,11 @@
-import {unsplashApi} from '@core/services';
+import {Http} from '@core/services';
+import {endPoints} from '@shared/endPoints';
 
 export const getPhotos = async () => {
-  const response = unsplashApi.photos.get();
-
-  console.log('response', response);
-
-  return Promise.resolve();
+  const response = await Http.get(endPoints.getPhotosRandom, {count: 1});
+  return Promise.resolve(response);
 };
 
 export const queryKey = {
-  get_photos: 'get_photos'
-}
+  get_photos: 'get_photos',
+};

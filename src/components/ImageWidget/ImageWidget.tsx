@@ -1,14 +1,8 @@
 import React, {FC} from 'react';
-import {
-  View,
-  Text,
-  ImageBackground,
-  Pressable,
-} from 'react-native';
+import {View, Text, ImageBackground, Pressable} from 'react-native';
 import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './ImageWidget.styles';
 import {ImageWidgetProps} from './ImageWidget.types';
-
 
 const ImageWidget: FC<ImageWidgetProps> = ({image, title, votes, onPress}) => {
   const {theme} = useTheme();
@@ -17,12 +11,12 @@ const ImageWidget: FC<ImageWidgetProps> = ({image, title, votes, onPress}) => {
   return (
     <Pressable style={styles.container} onPress={onPress}>
       <ImageBackground
-        source={image}
+        source={{uri: image}}
         style={styles.imgBackground}
         imageStyle={styles.imageStyle}>
         <View style={styles.contentInfo}>
           <Text style={[styles.label]}>{title}</Text>
-          <Text style={[styles.label, styles.labelVotes]}>{votes}</Text>
+          <Text style={[styles.label, styles.labelVotes]}>{`${votes} votes`}</Text>
         </View>
       </ImageBackground>
     </Pressable>

@@ -1,8 +1,6 @@
-import {ImageSourcePropType} from 'react-native'
-
 export type ImageWidgetProps = {
-  image: ImageSourcePropType;
-  title: string;
-  votes: string;
+  image: string;
+  title: string | null;
+  votes: number | 0;
   onPress: () => void;
 };

@@ -1,3 +1,5 @@
-const baseURL = '';
+const baseURL = 'https://api.unsplash.com';
 
-export const EndPoints = {};
+export const endPoints = {
+  getPhotosRandom: `${baseURL}/photos/random`,
+};
