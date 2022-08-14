@@ -13,21 +13,22 @@ import {useTheme} from '@contexts/Theme';
 import {makeStyles} from './Detail.styles';
 import {Routes} from '../../navigation/routes';
 import {useGetPhoto} from '@hooks/getPhoto';
+import {AntDesign} from '@expo/vector-icons';
 
 const Detail: FC<DetailProps> = ({route, navigation}) => {
   const {photoId} = route.params;
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
-  const [showInfoPhoto, setShowInfoPhoto] = useState(true);
+  const [showInfoPhoto, setShowInfoPhoto] = useState(false);
   const visibility = new Animated.Value(showInfoPhoto ? 1 : 0);
   const {isLoading, data: imageWidget, refetch} = useGetPhoto(photoId);
 
   Animated.timing(visibility, {
-    useNativeDriver:true,
+    useNativeDriver: true,
     toValue: !showInfoPhoto ? 1 : 0,
     duration: 300,
-  }).start()
+  }).start();
 
   const handleShowInfo = () => setShowInfoPhoto(!showInfoPhoto);
 
@@ -66,6 +67,17 @@ const Detail: FC<DetailProps> = ({route, navigation}) => {
       <ImageBackground
         source={{uri: imageWidget.urls.full}}
         style={styles.imgBackground}>
+
+        <Animated.View style={[styles.actionSlides, containerStyle]}>
+          <Pressable style={[styles.btnAction, styles.btnLeft]}>
+            <AntDesign name="leftcircleo" size={30} color="white" />
+          </Pressable>
+
+          <Pressable style={[styles.btnAction, styles.btnRight]}>
+            <AntDesign name="rightcircleo" size={30} color="white" />
+          </Pressable>
+        </Animated.View>
+
         <Animated.View style={[styles.contentInfo, containerStyle]}>
           <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
             {imageWidget.description}

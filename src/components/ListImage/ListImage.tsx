@@ -12,10 +12,12 @@ const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
+  const allPhotos = data.map(item => item.id);
+
   const y = new Animated.Value(0);
 
   const handlePressWidget = (photoId: string) =>
-    navigation.navigate(Routes.DETAIL_IMAGE, {photoId});
+    navigation.navigate(Routes.DETAIL_IMAGE, {photoId, allPhotos});
 
   const renderWidgets = ({item, index}: {item: dataImage, index: number}) => (
     <ImageWidget
@@ -28,6 +30,8 @@ const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
       index={index}
     />
   );
+
+  
 
   return (
     <AnimatedFlatList

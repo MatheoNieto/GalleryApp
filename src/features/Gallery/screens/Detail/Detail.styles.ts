@@ -9,7 +9,7 @@ export const makeStyles = ({color, spacing, typography, sizes}: ThemeKeys) =>
     },
     imgBackground: {
       flex: 1,
-      justifyContent: 'flex-end',
+      justifyContent: 'space-between',
       resizeMode: 'cover',
     },
     contentInfo: {
@@ -52,4 +52,24 @@ export const makeStyles = ({color, spacing, typography, sizes}: ThemeKeys) =>
       color: color.white,
       fontSize: sizes.xSmall,
     },
+    actionSlides: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      flex: 1,
+    },
+    btnAction: {
+      padding: spacing[2],
+      backgroundColor: color.black,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    btnLeft:{
+      borderTopEndRadius:10,
+      borderBottomEndRadius:10
+    },
+    btnRight:{
+      borderTopStartRadius:10,
+      borderBottomStartRadius:10
+    }
   });
