@@ -1,6 +1,6 @@
 import {useQuery, UseQueryResult} from 'react-query';
 import {queryKey, getPhotos} from './getPhoto.service';
-import {RequestGetPhotosResponse} from './getPhotos.types';
+import {RequestGetPhotosResponse} from '@models/getPhotos.types';
 
 export const useGetPhotos = (): UseQueryResult<RequestGetPhotosResponse, any> =>
   useQuery({

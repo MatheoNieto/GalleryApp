@@ -1,4 +1,4 @@
-import {RequestGetPhotosResponse} from '@hooks/getPhotos/getPhotos.types';
+import {RequestGetPhotosResponse} from '@models/getPhotos.types';
 import {useQuery, UseQueryResult} from 'react-query';
 import {queryKey, getPhoto} from './getPhoto.service';
 

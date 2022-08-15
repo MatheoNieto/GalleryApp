@@ -16,7 +16,8 @@ module.exports = function (api) {
           "@components": "./src/components",
           "@core": "./src/core",
           "@hooks": "./src/hooks",
-          "@shared": "./src/shared"
+          "@shared": "./src/shared",
+          "@models": "./src/models"
         }
       }],
     ],
