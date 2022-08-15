@@ -15,4 +15,8 @@
 
 The documentation of the API [Unsplash API](https://unsplash.com/documentation#list-a-users-photos)
 
+In this link reading the QR could test the app [expo](https://expo.dev/@matheonieto)
+![QR expo](/Docs/qr.png)
+
+### example run app
 ![App](/Docs/app.gif)
