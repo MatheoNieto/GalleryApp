@@ -8,7 +8,7 @@ import {ListImageProps, dataImage} from './ListImage.types';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
+const ListImage: FC<ListImageProps> = ({data, navigation}) => {
   const {theme} = useTheme();
   const styles = makeStyles(theme);
 
@@ -26,7 +26,6 @@ const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
       title={item.description}
       views={item.views}
       onPress={() => handlePressWidget(item.id)}
-      noShowInfo={noShowInfo}
       y={y}
       index={index}
     />
@@ -42,7 +41,7 @@ const ListImage: FC<ListImageProps> = ({data, navigation, noShowInfo}) => {
       contentContainerStyle={styles.container}
       data={data}
       renderItem={renderWidgets}
-      keyExtractor={(item, index) => `${item.id}-${index}`}
+      keyExtractor={(item: dataImage, index: number) => `${item.id}-${index}`}
     />
   );
 };

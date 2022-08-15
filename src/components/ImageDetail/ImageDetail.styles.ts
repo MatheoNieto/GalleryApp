@@ -1,7 +1,7 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import {ThemeKeys} from '@contexts/Theme';
 
-const {width, height} = Dimensions.get('screen')
+const {width} = Dimensions.get('screen')
 
 export const makeStyles = ({typography, color, sizes, spacing}: ThemeKeys) =>
   StyleSheet.create({
@@ -43,6 +43,7 @@ export const makeStyles = ({typography, color, sizes, spacing}: ThemeKeys) =>
       width: 37,
       height: 37,
       marginRight: spacing[2],
+      borderRadius: 50
     },
     nameAuthor: {
       fontFamily: typography.primaryThin,

@@ -5,6 +5,7 @@ import {makeStyles} from './Profile.styles';
 import {ProfileProps} from './Profile.types';
 import {ListImage} from '@components/ListImage';
 import {useGetAuthor} from '@hooks/getAuthor';
+import {useGetPhotosAuthor} from '@hooks/getPhotosAuthor'
 
 const Profile: FC<ProfileProps> = ({route, navigation}) => {
   const {username} = route.params;
@@ -13,6 +14,7 @@ const Profile: FC<ProfileProps> = ({route, navigation}) => {
   const styles = makeStyles(theme);
 
   const {isLoading, data: dataAuthor} = useGetAuthor(username);
+  const {data: photosAuthor} = useGetPhotosAuthor(username);
 
   if (isLoading) {
     return <ActivityIndicator />;
@@ -30,7 +32,7 @@ const Profile: FC<ProfileProps> = ({route, navigation}) => {
 
       <View style={styles.myPhotos}>
         <Text style={styles.title}>My Photos</Text>
-        <ListImage navigation={navigation} data={dataAuthor.photos} noShowInfo={true} />
+        <ListImage navigation={navigation} data={photosAuthor} />
       </View>
     </View>
   );

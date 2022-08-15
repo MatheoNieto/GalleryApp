@@ -19,7 +19,6 @@ const ImageWidget: FC<ImageWidgetProps> = ({
   title,
   views,
   onPress,
-  noShowInfo,
   y,
   index,
 }) => {
@@ -67,21 +66,16 @@ const ImageWidget: FC<ImageWidgetProps> = ({
           source={{uri: image}}
           style={styles.imgBackground}
           imageStyle={styles.imageStyle}>
-          {!noShowInfo && (
-            <View style={styles.contentInfo}>
-              <Text
-                style={[styles.label]}
-                numberOfLines={2}
-                ellipsizeMode="tail">
-                {title}
-              </Text>
-              <Text
-                style={[
-                  styles.label,
-                  styles.labelVotes,
-                ]}>{`${views} views`}</Text>
-            </View>
-          )}
+          <View style={styles.contentInfo}>
+            <Text style={[styles.label]} numberOfLines={2} ellipsizeMode="tail">
+              {title}
+            </Text>
+            <Text
+              style={[
+                styles.label,
+                styles.labelVotes,
+              ]}>{`${views} views`}</Text>
+          </View>
         </ImageBackground>
       </Pressable>
     </Animated.View>

@@ -45,7 +45,7 @@ const ImageDetail: FC<ImageDetailProps> = ({dataImage, onShowProfile}) => {
           <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">
             {dataImage.description}
           </Text>
-          <Text style={styles.votes}>{`${dataImage.views} views`}</Text>
+          <Text style={styles.votes}>{`${dataImage.views || 0} views`}</Text>
 
           <View style={styles.author}>
             <Image

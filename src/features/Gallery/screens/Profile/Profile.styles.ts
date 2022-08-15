@@ -16,6 +16,7 @@ export const makeStyles = ({color, spacing, typography, sizes}: ThemeKeys) =>
       width: 63,
       height: 63,
       marginRight: spacing[2],
+      borderRadius: 50
     },
     infoAuthor: {
       padding: spacing[3],

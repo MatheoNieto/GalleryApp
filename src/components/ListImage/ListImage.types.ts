@@ -64,5 +64,4 @@ export type dataImage = {
 export type ListImageProps = {
   data: dataImage[];
   navigation: StackNavigationProp<GalleryStackParamList>;
-  noShowInfo: boolean | false;
 };
